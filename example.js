@@ -15,8 +15,8 @@ db.transact(edn`(merge {
 })`)
 
 const mutualAdmirers = db.query(edn`{
-  a {"follows" #{b} "name" aname}
-  b {"follows" #{a} "name" bname}
+  a {"follows" #{b} "name" _}
+  b {"follows" #{a} "name" _}
 }`)
 
 console.log(write(mutualAdmirers))

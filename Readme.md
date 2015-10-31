@@ -48,8 +48,8 @@ Now we can ask questions
 
 ```js
 const mutualAdmirers = db.query(edn`{
-  a {"follows" #{b} "name" x}
-  b {"follows" #{a} "name" y}
+  a {"follows" #{b} "name" _}
+  b {"follows" #{a} "name" _}
 }`)
 mutualAdmirers[0] // => {Entity(1) => {"follows" #{Entity(2)} "name" "Harold Abelson"}
                   //     Entity(2) => {"follows" #{Entity(1)} "name" "Gerald Jay Sussman"}}

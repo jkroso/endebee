@@ -26,8 +26,14 @@ class DB {
     this.store = fn(this.store, val)
   }
   query(pattern) {
-    return matcher(pattern)([], {}, new List(this.store))
+    pattern = replaceSymbols(pattern, genSymEnv)
+    const zipper = new List(this.store)
+    return matcher(pattern)([], {}, zipper)
   }
+}
+
+const genSymEnv = {
+  get [Symbol.for('_')]() { return Symbol() }
 }
 
 const matcher = pattern =>
