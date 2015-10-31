@@ -11,6 +11,8 @@ Also transactions and queries are data. This enables a bunch of non-obvious thin
 - Makes it possible to generate the reverse of a transaction
 - GUI clients can be smarter about updating themselves; since data and transactions use the same structure we can easily tell if a transaction will affect the result of a query
 
+Further design thoughts can be found in the [wiki](//www.notion.so/LT2Fafkqw4tEQ). Feel free to contribute ideas or ask questions there too.
+
 ## Installation
 
 `npm install endebee`
@@ -44,7 +46,7 @@ db.transact(edn`(merge {
 })`)
 ```
 
-Now we can ask questions
+Now we can ask questions. Note that the `_` symbol is shorthand for `${Symbol()}` so we aren't asking for both `a` and `b` to have the same name. Use `_` when you want to extract a value but you don't feel like giving it a name.
 
 ```js
 const mutualAdmirers = db.query(edn`{
